@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello React!</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- adding react to the file (as a script) the first link is react library includes everything components and etc-->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- rendering layer (renders reacts components into the DOM) -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- creating a component -->
+    <script>
+      function App() {
+        //in here we can write a normal JavaScript logic (which has nothing to do with react)
+        // const time = new Date().toLocaleTimeString();
+
+        //the JavaScript was not as effective to have time updates every second, hence we need to use the react state and effect
+        const [time, setTime] = React.useState(new Date().toLocaleTimeString());
+        //we need an effect to have the time change every second in the state
+        React.useEffect(function () {
+          setInterval(function () {
+            //this is JS
+            setTime(new Date().toLocaleTimeString()); // this is JS
+          }, 1000);
+        }, []);
+
+        // gets or creates a react component from react by the script on the link above
+        // the react node accepts ("HTML", props, "child") when using pure react, but with jsx we would have written in just HTML
+        return React.createElement("header", null, `hello react! ${time}`);
+      }
+
+      // in order to get the react component displayed, we have to render it on the DOM (second link comes in play)
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(React.createElement(App));
+    </script>
+  </body>
+</html>
+
+<!-- This is not how react is used in real world (just bare bones react) 1. No modules 2. No way of converting jsx 3. No http server, which automatically reloads the application -->

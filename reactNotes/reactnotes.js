@@ -67,3 +67,13 @@
  *  (simply building react application on react library and not just using vanila react)
  *  this is for production appliactions
  */
+
+/**
+ * DEBUGGING react
+ * 1. make sure the app is running
+ * 2. If app is running, stop the app and re run it (npm start)
+ * 3. Do a hard reload on the browser
+ * 4. Always keep the terminal open and the dev tools on the browser
+ * 5. Incase of syntax errors, react App has a built in that will display the errors and you can copy and google the errors
+ * 6. work with eslint (warning that apper on the lines you are typing on the IDE)
+ */
